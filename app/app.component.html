@@ -1,0 +1,25 @@
+<div id="contener">
+  <div id="baner">
+    Wybierz atrakcje:
+    <select [(ngModel)]="atrakcja">
+      <option [ngValue]="null">Brak wyboru</option>
+      <option *ngFor="let value of atrakcje" [ngValue]="value">
+        {{ value.miejsce }} {{ value.adres }}
+      </option>
+    </select>
+  </div>
+  <div *ngIf="przyieczyn">
+    <div id="panel_lewy"></div>
+    <div id="panel_srodkowy">
+      <p class="akapit">{{ samochod.miejsce }} {{ samochod.adres }}</p>
+      <br />
+    </div>
+    <div id="panel_prawy">
+      <ng-container [ngSwitch]="przysieczyn.typ"> </ng-container>
+      <p>Dane:</p>
+      <ul>
+        <li *ngFor="let item of przysieczyn.dane">{{ item }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
